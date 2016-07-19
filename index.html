@@ -2,11 +2,11 @@
 <html>
 <head>
 	<title>German Shepherd Quiz!</title>
-    <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+	<!-- gabe: good practice to close the html tags though it's not required -->
+    <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'/>
 	<link rel="stylesheet" type="text/css" href="styles/style.css"/>
-	<meta charset="UTF-8">
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
-	</script>
+	<meta charset="UTF-8"/>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="js/Questions.js"></script>
 	<script type="text/javascript" src="js/Application.js"></script>
@@ -17,37 +17,42 @@
 	<section id="intro">
 		<div class="frontpage">
 			<h1>German Shepherd Quiz</h1>
-			<img id="gspic1" src="img/gspic1.png" alt="German Shepherds are the Best!"/>
-			<img id="thoughtbubble" src="img/thoughtbubble.png"/>
-			<p> Click On Me To Learn More About My Wonderful Breed! </p>
+			<div class="startQuiz">
+				<!-- gabe: using a link makes the cursor show a pointer on hover. -->
+				<a id="introgspic" href="#"><img src="img/introgspic.png" alt="German Shepherds are the Best!"/></a>
+				<img id="thoughtbubble" src="img/thoughtbubble2.png"/>
+			</div>
+		
 		</div>
 	</section>
 
-	<section class="play_area">
+	<section id="play_area">
+
 		<div class="header">
 			<h1> German Shepherd Quiz </h1>
 			<h2> Question <span class="cur_quest_num"></span> of <span class="total_quest_count"></span></h2>
 		</div>
 
 		<div class="question_area">
-			<p id="question"></p>
-			<p id="choices"></p>
-			<button class="qa" id="submit">Submit</button>
+			<form id="quesForm" name="quesForm" method="post" onsubmit= "return false">
+			<button class="submit" id="submit">Submit</button>
+			
+			</form>
 		</div>
 
 		<div class="answer_area">
 			<p id="answer"></p>
 			<p id="facts"></p>
-			<button class="qa" id="next">Next</button>
+			<button class="nextbtn" id="next">Next Question</button>
 		</div>
 	</section>
 
-	<section class="done">
-		<p id="score"></p>
+	<section id="done">
+		<p class="score"></p>
 		<button class="restart">Play Again!</button>
 	</section>
 
 
    
-</section>
 </body>
+</html>

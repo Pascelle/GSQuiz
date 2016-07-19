@@ -53,12 +53,13 @@ h1 {
 	text-align: center;
 }
 
-#gspic1 {
+#introgspic {
 	max-width: 35%;
-	padding-top: 151px;
+	padding-top: 150px;
 }
 
 #thoughtbubble {
-	/* max-width: 25% */
+	max-width: 25%;
 	vertical-align: top;
+
 }
