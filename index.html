@@ -28,28 +28,28 @@
 
 	<section id="play_area">
 
-		<div class="header">
+		<div id="header">
 			<h1> German Shepherd Quiz </h1>
 			<h2> Question <span class="cur_quest_num"></span> of <span class="total_quest_count"></span></h2>
 		</div>
 
-		<div class="question_area">
+		<div id="question_area">
 			<form id="quesForm" name="quesForm" method="post" onsubmit= "return false">
-			<button class="submit" id="submit">Submit</button>
-			
+			<div id="questions"></div>
+			<button class="btn" id="subbtn">Submit</button>
 			</form>
 		</div>
 
-		<div class="answer_area">
+		<div id="answer_area">
 			<p id="answer"></p>
 			<p id="facts"></p>
-			<button class="nextbtn" id="next">Next Question</button>
+			<button class="btn" id="nextbtn">Next Question</button>
 		</div>
 	</section>
 
 	<section id="done">
-		<p class="score"></p>
-		<button class="restart">Play Again!</button>
+		<p id="score"></p>
+		<button class="btn" id="rsbtn">Play Again!</button>
 	</section>
 
 
