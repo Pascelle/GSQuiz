@@ -6,8 +6,8 @@
     <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'/>
 	<link rel="stylesheet" type="text/css" href="styles/style.css"/>
 	<meta charset="UTF-8"/>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="js/Questions.js"></script>
 	<script type="text/javascript" src="js/Application.js"></script>
 </head>
@@ -30,7 +30,7 @@
 
 		<div id="header">
 			<h1> German Shepherd Quiz </h1>
-			<h2> Question <span class="cur_quest_num"></span> of <span class="total_quest_count"></span></h2>
+			<h2> Question <span id="cur_quest_num"> </span> out of 5 </h2>
 		</div>
 
 		<div id="question_area">
@@ -48,7 +48,7 @@
 	</section>
 
 	<section id="done">
-		<p id="score"></p>
+		<p id="score">You answered <span id=numQuesCorrect> 0 </span> questions correctly!</p>
 		<button class="btn" id="rsbtn">Play Again!</button>
 	</section>
 
