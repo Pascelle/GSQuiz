@@ -7,7 +7,6 @@ $(document).ready(function loaded (){
 	$("#play_area").hide();
 	$("#done").hide();
 
-	// User clicks on img, fades out intro class, fades in first ques via play area class
 
 	$("#introgspic").click(function introduction (e){
 		e.preventDefault(); // prevent the click from happening. 
@@ -16,30 +15,40 @@ $(document).ready(function loaded (){
 		$("#answer_area").hide();
 	});
 
-	//Play area
-	//Ask user a question
-	
-	// var totalQuestions = questionList.length;
 	var lastQuestion = questionList[4];
 	var currentQuesIndex = 0;
 	var currentQues = questionList[currentQuesIndex];
-	var displayTheQues = $("#questions").append('<li class="ask">' + currentQues.ask + '</li>');
-	var displayAnsChoices = currentQues.choices.forEach(function getEachAnsChoice (ansChoice) {
-			$("#questions").append('<input name="choices" type="radio" value="ansChoice">' + ansChoice + '<br>')
-			});
+	var displayTheQues = function () {$("#questions").append('<li class="ask">' + currentQues.ask + '</li>')};
+	var displayAnsChoices = function () {
+			currentQues.choices.forEach(function getEachAnsChoice (ansChoice) {
+			$("#questions").append('<input name="choices" type="radio" value="'+ansChoice+'">' + ansChoice + '<br>')})
+		};	
+	var removeTheQues = function() { $("#questions").empty();
+		};
+	var removeTheAns = function() { $("#answer").empty();
+		$("#facts").empty();
+		};
 	var numCorrect = 0;
+	var displayQuesCounterIndex = 1;
+	var displayQuesCounter = function () {$("#cur_quest_num").append(displayQuesCounterIndex)};
+
+		displayTheQues();
+		displayAnsChoices();
+		displayQuesCounter();
+
 
 	var uponSubmit = $("#subbtn").click(function checkAns (){
 			$("#question_area").hide(); 
 			$("#answer_area").show();
 			
-			var chosenAns = $("input[name='choices' type='radio']:checked").val();
+			var chosenAns = $("input[name='choices']:checked").val();
 			var correctAnswer = currentQues.correctAns[0];
 
 				if (chosenAns == correctAnswer) {
 					$("#answer").text("You are correct!");
 					$("#facts").append(currentQues.info);
-					$("#numQuesCorrect").html(numCorrect += 1);
+					$("#numQuesCorrect").empty();
+					$("#numQuesCorrect").append(numCorrect += 1);
 				}
 
 				else {
@@ -60,9 +69,19 @@ $(document).ready(function loaded (){
 		}
 		
 		else {
-			currentQuesIndex++;
-			displayTheQues;
-			displayAnsChoices;
+			removeTheQues();
+			removeTheAns();
+
+			currentQuesIndex++; //increment	
+			currentQues = questionList[currentQuesIndex];//re-reference to change the current question
+
+			displayQuesCounterIndex += 1;
+			$("#cur_quest_num").empty();
+			displayQuesCounter();
+
+			$("#question_area").show();
+			displayTheQues();
+			displayAnsChoices();
 			}		
 	});
 
